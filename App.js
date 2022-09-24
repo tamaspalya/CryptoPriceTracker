@@ -1,24 +1,36 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import ListItem from './components/ListItem';
 
-import {SAMPLE_DATA} from './assets/data/sampleData';
+import { SAMPLE_DATA } from './assets/data/sampleData';
+
+const ListHeader = () => (
+  <>
+    <View style={styles.titleWrapper}>
+      <Text style={styles.largeTitle}>Markets</Text>
+    </View>
+    <View style={styles.divider} />
+  </>
+)
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.titleWrapper}>
-        <Text style={styles.largeTitle}>Markets</Text>
-      </View>
-      <View style={styles.divider} />
-
-      <ListItem 
-      name={SAMPLE_DATA[0].name} 
-      sybmol={SAMPLE_DATA[0].symbol} 
-      currentPrice={SAMPLE_DATA[0].current_price} 
-      priceChangePercentage={SAMPLE_DATA[0].price_change_percentage_24h} 
-      logoUrl={SAMPLE_DATA[0].image}
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        keyExtractor={(item) => item.id}
+        data={SAMPLE_DATA}
+        renderItem={({ item }) => (
+          <ListItem
+            name={item.name}
+            sybmol={item.symbol}
+            currentPrice={item.current_price}
+            priceChangePercentage={item.price_change_percentage_24h}
+            logoUrl={item.image}
+          />
+        )}
+        ListHeaderComponent={<ListHeader />}
       />
-    </View>
+
+    </SafeAreaView>
   );
 }
 
@@ -28,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   titleWrapper: {
-    marginTop: 80,
+    marginTop: 20,
     paddingHorizontal: 16,
   },
   largeTitle: {
