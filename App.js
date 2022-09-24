@@ -1,5 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import ListItem from './components/ListItem';
+import listItem from './components/ListItem';
 
 export default function App() {
   return (
@@ -8,6 +9,8 @@ export default function App() {
         <Text style={styles.largeTitle}>Markets</Text>
       </View>
       <View style={styles.divider} />
+
+      <ListItem />
     </View>
   );
 }
