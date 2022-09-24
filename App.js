@@ -4,7 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.largeTitle}>Markets</Text>
+      <View style={styles.titleWrapper}>
+        <Text style={styles.largeTitle}>Markets</Text>
+      </View>
+      <View style={styles.divider} />
     </View>
   );
 }
@@ -14,8 +17,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  titleWrapper: {
+    marginTop: 80,
+    paddingHorizontal: 16,
+  },
   largeTitle: {
     fontSize: 24,
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
   },
+  divider: {
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#A9ABB1',
+    marginHorizontal: 16,
+    marginTop: 16,
+  }
 });
