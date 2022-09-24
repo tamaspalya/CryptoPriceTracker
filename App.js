@@ -10,7 +10,13 @@ export default function App() {
       </View>
       <View style={styles.divider} />
 
-      <ListItem />
+      <ListItem 
+      name={'Ethereum'} 
+      sybmol={'ETH'} 
+      currentPrice={'1800$'} 
+      priceChangePercentage={'1.9%'} 
+      logoUrl={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcjdowner%2Fcryptocurrency-flat%2F1024%2FEthereum-ETH-icon.png&f=1&nofb=1&ipt=a97b7dd4644482786d6693a9dbd3eaacecf82e39f79c24b7e958bf7d7ec7f63e&ipo=images'}
+      />
     </View>
   );
 }

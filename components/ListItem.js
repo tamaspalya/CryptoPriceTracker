@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
-const ListItem = () => {
+const ListItem = ({name, sybmol, currentPrice, priceChangePercentage, logoUrl}) => {
     return (
         <TouchableOpacity>
             <View style={styles.itemWrapper}>
@@ -9,19 +9,19 @@ const ListItem = () => {
                 {/*Left side*/}
                 <View style={styles.leftWrapper}>
                     <Image
-                        source={require('../assets/eth1.jpg')}
+                        source={{uri: logoUrl}}
                         style={styles.image}
                     />
                     <View style={styles.titlesWrapper}>
-                        <Text style={styles.title}>Ethereum</Text>
-                        <Text style={styles.subtitle}>ETH</Text>
+                        <Text style={styles.title}>{name}</Text>
+                        <Text style={styles.subtitle}>{sybmol}</Text>
                     </View>
                 </View>
 
                 {/*Right side*/}
                 <View style={styles.rightWrapper}>
-                    <Text style={styles.title}>Price</Text>
-                    <Text style={[styles.subtitle, { color: 'red' }]}>change</Text>
+                    <Text style={styles.title}>{currentPrice}</Text>
+                    <Text style={[styles.subtitle, { color: 'red' }]}>{priceChangePercentage}</Text>
                 </View>
             </View>
         </TouchableOpacity>
